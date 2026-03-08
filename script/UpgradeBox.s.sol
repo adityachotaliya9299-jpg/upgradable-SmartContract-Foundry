@@ -20,7 +20,7 @@ contract UpgradeBox is Script {
     function upgradeBox(address proxyAddress, address newBox) public returns (address) {
         vm.startBroadcast();
         BoxV1 proxy = BoxV1(payable(proxyAddress));
-        proxy.upgradeToAndCall(address(newBox),"");
+        proxy.upgradeToAndCall(address(newBox), "");
         vm.stopBroadcast();
         return address(proxy);
     }

@@ -15,9 +15,9 @@ contract DeployBox is Script {
         vm.startBroadcast();
         BoxV1 box = new BoxV1();
 
-         bytes memory initData = abi.encodeCall(BoxV1.initialize, ());
+        bytes memory initData = abi.encodeCall(BoxV1.initialize, ());
         ERC1967Proxy proxy = new ERC1967Proxy(address(box), initData);
-        
+
         vm.stopBroadcast();
         return address(proxy);
     }
